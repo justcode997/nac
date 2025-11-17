@@ -7,6 +7,9 @@ const handle = app.getRequestHandler()
 
 app.prepare().then(() => {
   const server = express()
+  
+  const macRoutes = require('./backend/routes/macRoutes');
+  server.use('/api/mac', macRoutes);
 
   // Example: custom route
   server.get('/api/health', (req, res) => res.json({ status: 'ok' }))
